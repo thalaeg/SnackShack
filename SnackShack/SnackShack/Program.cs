@@ -16,6 +16,7 @@ namespace SnackShack
             if (int.TryParse(numberOfSandwhichesString, out var numberOfSandwhiches) && numberOfSandwhiches >= 0)
             {
                 WriteSandwhichSchedule(numberOfSandwhiches);
+                WriteCustomerView(numberOfSandwhiches);
             }
             else
             {
@@ -28,6 +29,13 @@ namespace SnackShack
         {
             var orderText = new OrderTimer(numberOfSandwhiches).MakeSchedule();
             Console.WriteLine(orderText);
+        }
+
+        private static void WriteCustomerView(int numberOfSandwhiches)
+        {
+            var customerText = new OrderTimer(numberOfSandwhiches).GetCustomerView();
+            if (!string.IsNullOrEmpty(customerText))
+                Console.WriteLine(customerText);
         }
     }
 }
