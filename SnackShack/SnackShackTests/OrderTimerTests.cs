@@ -62,5 +62,14 @@ namespace SnackShackTests
                 +"\n6:00 make sandwich 5\n7:00 serve sandwich 5"
                 +"\n7:30 make sandwich 6\n8:30 serve sandwich 6", consoleText);
         }
+
+        [Fact]
+        public void IfOrderTakesMoreThan5Min_RejectAllOrdersAfter()
+        {
+            var orderTimer = new OrderTimer(4);
+            var customerLineText = orderTimer.GetCustomerView();
+
+            Assert.Equal("Sandwhich 4 can not be completed in time.", customerLineText);
+        }
     }
 }

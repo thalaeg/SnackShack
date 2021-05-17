@@ -52,5 +52,13 @@
                 return secondsString;
             }            
         }
+
+        public string GetCustomerView()
+        {
+            if (numberOfSandwhiches * 90 >= 300)
+                return $"Sandwhich {numberOfSandwhiches} can not be completed in time.";
+            else
+                return "";
+        }
     }
 }
